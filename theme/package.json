@@ -1,0 +1,20 @@
+{
+  "name": "slidev-theme-darkbeamer",
+  "version": "0.0.1",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@slidev/types": "^52.10.1"
+  },
+  "slidev": {
+    "colorSchema": "dark",
+    "defaults": {
+      "fonts": {
+        "sans": "Arial",
+        "mono": "JuliaMono"
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "working-regime-slides",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "slidev",
+    "build": "slidev build",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "^52.10.1",
+    "@slidev/theme-default": "latest",
+    "@slidev/types": "^52.10.1"
+  },
+  "slidev": {
+    "colorSchema": "dark",
+    "defaults": {
+      "fonts": {
+        "sans": "Arial",
+        "mono": "JuliaMono"
+      }
+    }
+  }
+}

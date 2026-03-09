@@ -1,0 +1,332 @@
+/*
+ * Dark Beamer Theme for Slidev
+ * Based on slidev-theme-nord structure, using the color palette from darktheme.sty
+ *
+ * Color mapping from Beamer:
+ *   Background:       darkbg        #282C34 / darkbg-dark #101215
+ *   Text:             greyseas      #CCCCCC / greyseas-light #E1E1E1
+ *   Primary:          cornflowerblue #6495ED / light #A5C2F5 / dark #144CAF
+ *   Accent (red):     crimson       #DC143C / light #F26F8A / dark #800C23
+ *   Accent (green):   cucumber      #77AB58 / light #B0CE9E / dark #456432
+ *   Accent (orange):  california    #EF9901 / light #FEC663 / dark #8B5901
+ *   Accent (purple):  juliapurple   #9558B2 / light #C29ED2 / dark #57316A
+ *   Dim text:         greyseas-dark #767676
+ */
+
+:root {
+  /* ── Background & Surface ──────────────────────────────────────────── */
+  --slidev-theme-bg:              #282C34;
+  --slidev-theme-bg-dark:         #101215;
+  --slidev-theme-surface:         #1e2128;
+
+  /* ── Text ──────────────────────────────────────────────────────────── */
+  --slidev-theme-text-light:            #CCCCCC;
+  --slidev-theme-text:      #E1E1E1;
+  --slidev-theme-text-dim:        #767676;
+
+  /* ── Primary (Cornflower Blue) ─────────────────────────────────────── */
+  --slidev-theme-primary:         #6495ED;
+  --slidev-theme-primary-light:   #A5C2F5;
+  --slidev-theme-primary-dark:    #144CAF;
+
+  /* ── Accent: Crimson ───────────────────────────────────────────────── */
+  --slidev-theme-crimson:         #DC143C;
+  --slidev-theme-crimson-light:   #F26F8A;
+  --slidev-theme-crimson-dark:    #800C23;
+
+  /* ── Accent: Cucumber (Green) ──────────────────────────────────────── */
+  --slidev-theme-cucumber:        #77AB58;
+  --slidev-theme-cucumber-light:  #B0CE9E;
+  --slidev-theme-cucumber-dark:   #456432;
+
+  /* ── Accent: California (Orange) ───────────────────────────────────── */
+  --slidev-theme-california:      #EF9901;
+  --slidev-theme-california-light:#FEC663;
+  --slidev-theme-california-dark: #8B5901;
+
+  /* ── Accent: Julia Purple ──────────────────────────────────────────── */
+  --slidev-theme-purple:          #9558B2;
+  --slidev-theme-purple-light:    #C29ED2;
+  --slidev-theme-purple-dark:     #57316A;
+}
+
+/* ── Global ────────────────────────────────────────────────────────────── */
+
+.slidev-layout {
+  background-color: var(--slidev-theme-bg);
+  color: var(--slidev-theme-text);
+}
+
+/* ── Typography ────────────────────────────────────────────────────────── */
+
+h1 {
+  color: var(--slidev-theme-text-light);
+  font-weight: 700;
+  border-bottom: 1px solid var(--slidev-theme-text-dim);
+  padding-bottom: 0.3em;
+  margin-bottom: 0.6em;
+}
+
+h2 {
+  color: var(--slidev-theme-primary-light);
+  font-weight: 600;
+}
+
+h3 {
+  color: var(--slidev-theme-primary);
+}
+
+p, li {
+  color: var(--slidev-theme-text);
+  line-height: 1.6;
+}
+
+strong, b {
+  color: var(--slidev-theme-text-light);
+}
+
+em, i {
+  color: var(--slidev-theme-primary-light);
+  font-style: italic;
+}
+
+a {
+  color: var(--slidev-theme-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--slidev-theme-primary-light);
+  text-decoration: underline;
+}
+
+/* ── Lists ─────────────────────────────────────────────────────────────── */
+
+ul {
+  list-style-type: disc;
+}
+
+ul ul {
+  list-style-type: '– ';
+}
+
+li::marker {
+  color: var(--slidev-theme-text-dim);
+}
+
+/* ── Blockquotes (used for "blocks" like in beamer) ────────────────────── */
+
+blockquote {
+  background-color: var(--slidev-theme-bg-dark);
+  border-left: 4px solid var(--slidev-theme-primary-dark);
+  padding: 0.8em 1.2em;
+  margin: 0.5em 0;
+  border-radius: 4px;
+}
+
+blockquote p {
+  margin: 0.2em 0;
+}
+
+/* ── Code ──────────────────────────────────────────────────────────────── */
+
+code {
+  background-color: var(--slidev-theme-bg-dark);
+  color: var(--slidev-theme-primary-light);
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+pre code {
+  padding: 0;
+  background: transparent;
+}
+
+.slidev-code-wrapper,
+.shiki {
+  background-color: var(--slidev-theme-bg-dark) !important;
+  border-radius: 6px;
+}
+
+/* ── Tables ────────────────────────────────────────────────────────────── */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: var(--slidev-theme-primary-dark);
+  color: var(--slidev-theme-text-light);
+  padding: 0.5em 0.8em;
+  text-align: left;
+}
+
+td {
+  padding: 0.4em 0.8em;
+  border-bottom: 1px solid rgba(204, 204, 204, 0.1);
+}
+
+tr:nth-child(even) {
+  background-color: rgba(100, 149, 237, 0.05);
+}
+
+tr:hover {
+  background-color: rgba(100, 149, 237, 0.1);
+}
+
+/* ── KaTeX / Math ──────────────────────────────────────────────────────── */
+
+.katex {
+  color: var(--slidev-theme-text-light);
+  font-size: 1.05em;
+}
+
+/* ── Cover / Title Layout ──────────────────────────────────────────────── */
+
+.slidev-layout.cover,
+.slidev-layout.intro {
+  background-color: var(--slidev-theme-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.slidev-layout.cover h1,
+.slidev-layout.intro h1 {
+  color: var(--slidev-theme-text-light);
+  font-size: 2.2em;
+  border-bottom: none;
+  border-left: 4px solid var(--slidev-theme-primary);
+  padding-left: 0.5em;
+  padding-bottom: 0;
+}
+
+.slidev-layout.cover p,
+.slidev-layout.intro p {
+  color: var(--slidev-theme-text);
+}
+
+/* ── Section Layout ────────────────────────────────────────────────────── */
+
+.slidev-layout.section h1 {
+  color: var(--slidev-theme-primary-light);
+  font-size: 2em;
+  border-bottom: none;
+  text-align: center;
+}
+
+/* ── Two-Cols Layout ───────────────────────────────────────────────────── */
+
+.slidev-layout.two-cols {
+  gap: 2em;
+}
+
+/* ── Footer ────────────────────────────────────────────────────────────── */
+
+.slidev-layout .slidev-page-number {
+  color: var(--slidev-theme-text-dim);
+}
+
+/* ── Utility classes (matching beamer convenience commands) ─────────────── */
+
+.highlight {
+  color: var(--slidev-theme-primary-light);
+}
+
+.alert-text {
+  color: var(--slidev-theme-crimson);
+}
+
+.success-text {
+  color: var(--slidev-theme-cucumber);
+}
+
+.warn-text {
+  color: var(--slidev-theme-california);
+}
+
+.accent-text {
+  color: var(--slidev-theme-purple);
+}
+
+.dim-text {
+  color: var(--slidev-theme-text-dim);
+}
+
+.cornflowerblue {
+  color: var(--slidev-theme-primary);
+}
+
+.cornflowerblue-light {
+  color: var(--slidev-theme-primary-light);
+}
+
+.crimson {
+  color: var(--slidev-theme-crimson);
+}
+
+.cucumber {
+  color: var(--slidev-theme-cucumber);
+}
+
+.california {
+  color: var(--slidev-theme-california);
+}
+
+.juliapurple {
+  color: var(--slidev-theme-purple);
+}
+
+.juliapurple-light {
+  color: var(--slidev-theme-purple-light);
+}
+
+/* ── Boxed block (emulates beamer \begin{block}) ──────────────────────── */
+
+.block {
+  background-color: var(--slidev-theme-bg-dark);
+  border-left: 3px solid var(--slidev-theme-primary-dark);
+  border-radius: 4px;
+  padding: 0.6em 1em;
+  margin: 0.5em 0;
+}
+
+.block-title {
+  color: var(--slidev-theme-text-light);
+  font-weight: 700;
+  margin-bottom: 0.3em;
+}
+
+.block-alert {
+  border-left-color: var(--slidev-theme-crimson-dark);
+}
+
+.block-example {
+  border-left-color: var(--slidev-theme-cucumber-dark);
+}
+
+/* ── Big question text ─────────────────────────────────────────────────── */
+
+.big-question {
+  color: var(--slidev-theme-primary-light);
+  font-size: 1.3em;
+  text-align: center;
+  margin: 1em 0;
+}
+
+/* ── Figure placeholder ────────────────────────────────────────────────── */
+
+.figure-placeholder {
+  color: var(--slidev-theme-text-dim);
+  border: 1px dashed var(--slidev-theme-text-dim);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2em 1em;
+  text-align: center;
+  font-style: italic;
+  min-height: 120px;
+}
