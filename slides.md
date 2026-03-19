@@ -81,133 +81,78 @@ where $\xi(t)$ is white Gaussian noise.
 
 ---
 
-# The Gaussian assumption fixes the dynamics
+# Dynamical exponents
 
-The choice of Gaussian noise **is not neutral** — it locks in specific dynamical exponents
-
-<div class="grid grid-cols-2 gap-6 mt-4">
-<div>
-
-<div class="block">
-<div class="block-title">Gaussian predictions</div>
-
-- Diffusion: MAD $\propto \tau^a$ with $a = 0.5$
-- Spectral: PSD $\propto f^b$ with $b = -2$
-- Variability: Fano factor $= 1$ at all timescales
-
-<div class="dim-text mt-2">These are consequences, not free parameters</div>
-</div>
-
-<div class="alert-text mt-4">But experiment and circuit models show anomalous exponents that directly contradict these values</div>
-
-</div>
-<div>
+<!-- The choice of Gaussian noise **is not neutral** — it locks in specific dynamical exponents -->
 
 <div class="grid grid-cols-2 gap-4">
-<div>
+<div class="block">
+<div class="block-title">Diffusion</div>
 
-<div class="figure-placeholder" style="min-height: 110px;">
-
-Neuropixels MAD
-
-</div>
-
-<div class="text-center text-sm">$a = 0.6$</div>
+MAD (width of probability density) expands $\propto \tau^a$ with $a = 0.5$
 
 </div>
-<div>
+<div class="block">
+<div class="block-title">Spectral</div>
 
-<div class="figure-placeholder" style="min-height: 110px;">
-
-Circuit model MAD
-
-</div>
-
-<div class="text-center text-sm">$a = 0.69$</div>
-
-</div>
-<div>
-
-<div class="figure-placeholder" style="min-height: 110px;">
-
-Neuropixels PSD
-
-</div>
-
-<div class="text-center text-sm">$b = -1.73$</div>
-
-</div>
-<div>
-
-<div class="figure-placeholder" style="min-height: 110px;">
-
-Circuit model PSD
-
-</div>
-
-<div class="text-center text-sm">$b = -1.83$</div>
+PSD $\propto f^b$ with $b = -2$, indicating local temporal correlations
 
 </div>
 </div>
 
-</div>
-</div>
+<div class="alert-text mt-2">But experiment and circuit models show anomalous exponents that contradict these values</div>
+
+<img src="/.figures/experiment_circuit_statistics.svg" class="w-full" style="margin-top: auto;" />
 
 ---
 
 # How do we capture anomalous dynamics?
 
-<div class="grid grid-cols-2 gap-8 mt-6">
-<div class="block">
-<div class="block-title">Classical mean-field</div>
+<div class="text-center mt-6">
 
-$$\frac{dV}{dt} = f(V) + \eta\,\xi(t)$$
 
-<div class="dim-text">
 
-- Diffusion exponent $= 0.5$
-- Spectral exponent $= -2$
-- Fano factor typically $1$
+<div style="font-size: 2em;">
 
-</div>
-
-</div>
-<div class="block">
-<div class="block-title">Bi-fractional mean-field</div>
+**Bi-fractional mean-field input**
 
 $${}^C\!D_t^{\textcolor{#DC143C}{\beta}}\, x = -\eta\,\nabla \tilde{V}_{\textcolor{#6495ED}{\alpha}} + {\textcolor{#EF9901}{\gamma}}\, p + \eta^{1/{\textcolor{#6495ED}{\alpha}}}\,\xi_{{\textcolor{#6495ED}{\alpha}},{\textcolor{#DC143C}{\beta}}}$$
 
 $$\frac{dp}{dt} = -{\textcolor{#EF9901}{\gamma}}\,\nabla \tilde{V}_{\textcolor{#6495ED}{\alpha}}$$
 
-<div class="dim-text">
-
-- Fractional derivatives → tunable exponents
-
 </div>
 
 </div>
-</div>
 
-<div class="grid grid-cols-3 gap-6 mt-4 text-center">
-<div>
+<div class="grid grid-cols-3 gap-6 mt-4">
+<div class="block">
+<div class="block-title cornflowerblue">
 
-<span class="cornflowerblue text-xl">$\textcolor{#6495ED}{\alpha}$</span> — Space-fractional order
-
-<div class="text-sm">Heavy-tailed jumps → superdiffusion</div>
+$\textcolor{#6495ED}{\alpha}$ — Space-fractional order
 
 </div>
-<div>
 
-<span class="crimson text-xl">$\textcolor{#DC143C}{\beta}$</span> — Time-fractional order
-
-<div class="text-sm">Power-law memory → long-range correlations</div>
+Heavy-tailed jumps → superdiffusion
 
 </div>
-<div>
+<div class="block">
+<div class="block-title crimson">
 
-<span class="california text-xl">$\textcolor{#EF9901}{\gamma}$</span> — Momentum coupling
+$\textcolor{#DC143C}{\beta}$ — Time-fractional order
 
-<div class="text-sm">Local oscillations</div>
+</div>
+
+Power-law memory → long-range correlations
+
+</div>
+<div class="block">
+<div class="block-title california">
+
+$\textcolor{#EF9901}{\gamma}$ — Momentum coupling
+
+</div>
+
+Local oscillations
 
 </div>
 </div>
@@ -221,7 +166,7 @@ $$\frac{dp}{dt} = -{\textcolor{#EF9901}{\gamma}}\,\nabla \tilde{V}_{\textcolor{#
 <div class="grid gap-8 mt-4" style="grid-template-columns: 5fr 7fr;">
 <div>
 
-<div class="text-xs mt-4">
+<div class="text-xs mt-12">
 
 | | **Space-fractional** $\alpha$ | **Time-fractional** $\beta$ |
 | --- | --- | --- |
@@ -294,7 +239,7 @@ $\textcolor{#6495ED}{\alpha}$ superdiffusion enhances fluctuation-driven regime 
 </div>
 <div class="block">
 
-$\textcolor{#DC143C}{\beta}$ memory increases firing-rate variability and produces power-law Fano factor scaling
+$\textcolor{#DC143C}{\beta}$ memory increases firing-rate variability and produces power-law Fano factor scaling................add fano factor for experiment here.................
 
 </div>
 <div class="block">

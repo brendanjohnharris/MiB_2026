@@ -238,6 +238,11 @@ tr:hover {
   color: var(--slidev-theme-text-dim);
 }
 
+.no-page-number .slidev-page-number,
+.slidev-page-1 .slidev-page-number {
+  display: none;
+}
+
 /* ── Utility classes (matching beamer convenience commands) ─────────────── */
 
 .highlight {
