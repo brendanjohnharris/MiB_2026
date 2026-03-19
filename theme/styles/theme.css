@@ -3,7 +3,7 @@
  * Based on slidev-theme-nord structure, using the color palette from darktheme.sty
  *
  * Color mapping from Beamer:
- *   Background:       darkbg        #282C34 / darkbg-dark #101215
+ *   Background:       darkbg        #282C34 / darkbg-dark #576173
  *   Text:             greyseas      #CCCCCC / greyseas-light #E1E1E1
  *   Primary:          cornflowerblue #6495ED / light #A5C2F5 / dark #144CAF
  *   Accent (red):     crimson       #DC143C / light #F26F8A / dark #800C23
@@ -16,7 +16,7 @@
 :root {
   /* ── Background & Surface ──────────────────────────────────────────── */
   --slidev-theme-bg:              #282C34;
-  --slidev-theme-bg-dark:         #101215;
+  --slidev-theme-bg-dark:         #313640;
   --slidev-theme-surface:         #1e2128;
 
   /* ── Text ──────────────────────────────────────────────────────────── */
@@ -114,6 +114,11 @@ li::marker {
   color: var(--slidev-theme-text-dim);
 }
 
+.tight-list p, .tight-list ul, .tight-list li {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
 /* ── Blockquotes (used for "blocks" like in beamer) ────────────────────── */
 
 blockquote {
@@ -157,10 +162,14 @@ table {
 }
 
 th {
-  background-color: var(--slidev-theme-primary-dark);
-  color: var(--slidev-theme-text-light);
+  background-color: #CCCCCC;
+  color: #000000;
   padding: 0.5em 0.8em;
   text-align: left;
+}
+
+th strong, th b, th .katex, th .katex * {
+  color: #000000;
 }
 
 td {
@@ -287,10 +296,14 @@ tr:hover {
 
 .block {
   background-color: var(--slidev-theme-bg-dark);
-  border-left: 3px solid var(--slidev-theme-primary-dark);
+  border-left: 3px solid var(--slidev-theme-primary);
   border-radius: 4px;
   padding: 0.6em 1em;
   margin: 0.5em 0;
+}
+
+.block p {
+  margin: 0;
 }
 
 .block-title {

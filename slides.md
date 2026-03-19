@@ -14,84 +14,74 @@ canvasWidth: 980
 transition: slide-left
 ---
 
-# The Adaptive Fractional State of Visual Cortex
+# The Adaptive Fractional Regime of Visual Cortex
 
-Brendan Harris, Pulin Gong
+**Brendan Harris & Pulin Gong**
 
-School of Physics, The University of Sydney
+School of Physics<br>The University of Sydney
 
 ---
 
-# What Is the Working Regime of the Visual Cortex?
+# What is the working regime of the visual cortex?
 
-This long-standing question has been studied extensively, both experimentally and theoretically
+<div class="grid gap-8 mt-2" style="grid-template-columns: 6fr 6fr;">
+<div>
+
+<div style="background: #cccccc; color: #282c34; border-radius: 8px; padding: 8px 16px; display: inline-block; font-weight: bold; margin-bottom: 12px; margin-top: 12px;">Spontaneous activity is fluctuation-driven</div>
+
+- Low firing rates (~1--10 Hz) <span class="dim-text">[[Barth & Poulet 2012](https://doi.org/10.1016/j.tins.2012.03.008)]</span>
+- Sparse coding <span class="dim-text">[[Olshausen & Field 2004](https://doi.org/10.1016/j.conb.2004.07.007)]</span>
+- Mean membrane potentials far from threshold <span class="dim-text">[[Carandini 2000](https://doi.org/10.1523/JNEUROSCI.20-01-00470.2000); [DeWeese & Zador 2006](https://doi.org/10.1523/jneurosci.2813-06.2006)]</span>
+
+</div>
+<div>
+
+
+<div style="background: #cccccc; color: #282c34; border-radius: 8px; padding: 8px 16px; display: inline-block; font-weight: bold; margin-bottom: 12px; margin-top: 12px;">But also highly variable and non-stationary</div>
+
+- Nested oscillations and $1/f$ <span class="dim-text">[[Poil et al. 2012](https://doi.org/10.1523/JNEUROSCI.5990-11.2012)]</span>
+- Super-Poissonian spikes <span class="dim-text">[[Churchland et al. 2010](https://doi.org/10.1038/nn.2501)]</span>
+- Bumpy synaptic inputs <span class="dim-text">[[Okun & Lampl 2008](https://doi.org/10.1038/nn.2105)]</span>
+
+</div>
+</div>
+
+<img src="/.figures/brain_trace.svg" class="w-full max-h-52" style="margin-top: 12px;" />
+
+<!-- <div class="dim-text text-sm mt-1">Allen Institute Neuropixels dataset — 53 sessions, 36 mice, 6 visual areas</div> -->
+
+<!-- <div class="big-question mt-2">How do we understand the origin of these dynamics?</div> -->
+
+---
+
+# Classical model: balanced-state network
 
 <div class="grid grid-cols-2 gap-8 mt-2">
 <div>
 
-Most neurons operate in a **fluctuation-driven regime**:
-- Low firing rates (~1–10 Hz) <span class="dim-text">[Barth & Bhatt 2012]</span>
-- Sparse coding <span class="dim-text">[Olshausen & Field 2004]</span>
-- Mean membrane potentials far from threshold <span class="dim-text">[Carandini 2000; DeWeese & Zador 2006]</span>
+**Balanced E/I populations** can produce the fluctuation-driven regime <span class="dim-text">[[van Vreeswijk & Sompolinsky 1996](https://doi.org/10.1126/science.274.5293.1724)]</span>
 
-But activity is also highly **variable and non-stationary**:
-- Nested oscillations with $1/f$ spectral components <span class="dim-text">[Poil et al. 2012]</span>
-- Super-Poissonian spike variability <span class="dim-text">[Churchland et al. 2010]</span>
-- Heavy-tailed, correlated synaptic inputs <span class="dim-text">[Okun & Lampl 2008]</span>
-
-</div>
-<div>
-
-<div class="figure-placeholder mt-4">
-
-Figure: Brain schematic with Neuropixels probes + example LFP/spike traces
-
-</div>
-
-<div class="dim-text text-sm mt-2">Allen Institute Neuropixels dataset — 53 sessions, 36 mice, 6 visual areas</div>
-
-</div>
-</div>
-
-<div class="big-question mt-4">How do we understand the origin of these dynamics?</div>
-
----
-
-# Classical Models: Fluctuation-Driven E/I Networks
-
-<div class="grid grid-cols-2 gap-8 mt-2">
-<div>
-
-**Balanced E/I networks** capture the fluctuation-driven regime <span class="dim-text">[van Vreeswijk & Sompolinsky 1996; Brunel 2000]</span>
-- Excitatory and inhibitory inputs average near zero
-- Spiking driven by fluctuations, not mean input
-- Population oscillations from E-I feedback
-
-**Mean-field reduction** approximates the network as a single neuron driven by stochastic input <span class="dim-text">[Brunel 2000; Wardak & Bhatt 2021]</span>
+**Mean-field theory** treats summed E/I input as a stochastic process <span class="dim-text">[[Brunel 2000](https://doi.org/10.1023/A:1008925309027)]</span>:
+- E and I inputs cancel on average
+- Spiking is driven by fluctuations alone
+<!-- - Population oscillations from E-I feedback appear in input traces -->
+<!-- ; [Wardak & Gong 2021](https://doi.org/10.1103/PhysRevResearch.3.013083)] -->
 
 <div class="block mt-4">
-<div class="block-title">Standard Mean-Field (Langevin Equation)</div>
+<div class="block-title">Classical mean-field Langevin-like Equation</div>
 
-$$\frac{dV}{dt} = f(V) + \sigma\,\xi(t)$$
+$$\frac{dV}{dt} = f(V) + \eta\,\xi(t)$$
 
-<div class="dim-text">where $\xi(t)$ is white Gaussian noise</div>
-</div>
+where $\xi(t)$ is white Gaussian noise.
+</div></div>
 
-</div>
-<div>
+<img src="/.figures/mean_field.svg" class="w-full max-h-100" style="margin-top: 12px;" />
 
-<div class="figure-placeholder mt-4">
-
-Figure: Circuit schematic — E/I network with mean-field reduction
-
-</div>
-
-</div>
 </div>
 
 ---
 
-# The Gaussian Assumption Fixes the Dynamics
+# The Gaussian assumption fixes the dynamics
 
 The choice of Gaussian noise **is not neutral** — it locks in specific dynamical exponents
 
@@ -165,268 +155,165 @@ Circuit model PSD
 
 ---
 
-# How Do We Capture These Anomalous Dynamics?
+# How do we capture anomalous dynamics?
 
 <div class="grid grid-cols-2 gap-8 mt-6">
-<div>
+<div class="block">
+<div class="block-title">Classical mean-field</div>
 
-**Classical mean-field:**
+$$\frac{dV}{dt} = f(V) + \eta\,\xi(t)$$
 
-$$\frac{dV}{dt} = f(V) + \sigma\,\xi(t)$$
+<div class="dim-text">
 
-<div class="dim-text">Gaussian white noise → fixed exponents</div>
-<div class="dim-text">$a = 0.5$, $b = -2$, FF $= 1$</div>
+- Diffusion exponent $= 0.5$
+- Spectral exponent $= -2$
+- Fano factor typically $1$
 
 </div>
-<div>
 
-**Bi-fractional mean-field:**
+</div>
+<div class="block">
+<div class="block-title">Bi-fractional mean-field</div>
 
 $${}^C\!D_t^{\textcolor{#DC143C}{\beta}}\, x = -\eta\,\nabla \tilde{V}_{\textcolor{#6495ED}{\alpha}} + {\textcolor{#EF9901}{\gamma}}\, p + \eta^{1/{\textcolor{#6495ED}{\alpha}}}\,\xi_{{\textcolor{#6495ED}{\alpha}},{\textcolor{#DC143C}{\beta}}}$$
 
 $$\frac{dp}{dt} = -{\textcolor{#EF9901}{\gamma}}\,\nabla \tilde{V}_{\textcolor{#6495ED}{\alpha}}$$
 
-<div class="dim-text">Fractional derivatives → tunable exponents</div>
+<div class="dim-text">
+
+- Fractional derivatives → tunable exponents
+
+</div>
 
 </div>
 </div>
 
-<div class="grid grid-cols-3 gap-6 mt-8 text-center">
+<div class="grid grid-cols-3 gap-6 mt-4 text-center">
 <div>
 
 <span class="cornflowerblue text-xl">$\textcolor{#6495ED}{\alpha}$</span> — Space-fractional order
 
-<div class="dim-text text-sm">Heavy-tailed jumps → superdiffusion</div>
+<div class="text-sm">Heavy-tailed jumps → superdiffusion</div>
 
 </div>
 <div>
 
 <span class="crimson text-xl">$\textcolor{#DC143C}{\beta}$</span> — Time-fractional order
 
-<div class="dim-text text-sm">Power-law memory → long-range correlations</div>
+<div class="text-sm">Power-law memory → long-range correlations</div>
 
 </div>
 <div>
 
 <span class="california text-xl">$\textcolor{#EF9901}{\gamma}$</span> — Momentum coupling
 
-<div class="dim-text text-sm">E-I feedback → oscillations</div>
+<div class="text-sm">Local oscillations</div>
 
 </div>
 </div>
 
 ---
 
-# What Do Fractional Derivatives Do?
+# What do fractional derivatives do?
 
-<div class="grid grid-cols-2 gap-8 mt-4">
+
+
+<div class="grid gap-8 mt-4" style="grid-template-columns: 5fr 7fr;">
 <div>
 
-**Space-fractional derivative** ($\textcolor{#6495ED}{\alpha} < 2$)
+<div class="text-xs mt-4">
 
-Replaces Gaussian diffusion with Lévy-stable noise
-- $\textcolor{#6495ED}{\alpha} = 2$: Gaussian (classical)
-- $\textcolor{#6495ED}{\alpha} < 2$: heavy-tailed jumps
-
-**Effect on drift & diffusion:**
-- Large, rare excursions from the potential well
-- Superdiffusive motion ($a > 0.5$)
-- Faster exploration of state space
-
-<div class="figure-placeholder mt-2" style="min-height: 100px;">
-
-Figure: Effective potential — Gaussian vs Lévy ($\textcolor{#6495ED}{\alpha} = 2$ vs $1.5$)
+| | **Space-fractional** $\alpha$ | **Time-fractional** $\beta$ |
+| --- | --- | --- |
+| **Classical limit** | $\textcolor{#6495ED}{\alpha} = 2$: Gaussian | $\textcolor{#DC143C}{\beta} = 1$: finite memory |
+| **Fractional regime** | $1 < \textcolor{#6495ED}{\alpha} < 2$ | $0 < \textcolor{#DC143C}{\beta} < 1$ |
+| **Drift effect** | Effective potential with steep walls | Caputo derivative produces power-law relaxation|
+| **Diffusion effect** | Stable distribution produces large jumps, promotes superdiffusion | Long-range memory flattens power spectrum, promotes subdiffusion |
 
 </div>
 
 </div>
 <div>
 
-**Time-fractional derivative** ($\textcolor{#DC143C}{\beta} < 1$)
-
-Replaces the standard derivative with a Caputo derivative: a weighted integral over all past states
-- $\textcolor{#DC143C}{\beta} = 1$: standard (memoryless)
-- $\textcolor{#DC143C}{\beta} < 1$: power-law memory kernel
-
-**Effect on drift & diffusion:**
-- Long-range temporal correlations
-- Subdiffusive component that stabilizes local dynamics
-- Spectral slope $b > -2$
-
-<div class="figure-placeholder mt-2" style="min-height: 100px;">
-
-Figure: Memory kernel — exponential vs power-law decay
-
+<div class="flex justify-right my-4">
+  <img src=".figures/fractional_summary.svg" alt="Fractional derivatives summary" style="max-width: 100%; height: auto;" />
 </div>
 
 </div>
 </div>
 
-<div class="dim-text text-center mt-2">Oscillations arise from momentum coupling ($\textcolor{#EF9901}{\gamma}$), analogous to PING in E-I circuits</div>
+
+
 
 ---
 
-# bFNS: Tunable Diffusion and Spectral Exponents
+# bFNS: tunable diffusion and spectral exponents
 
-$\textcolor{#6495ED}{\alpha}$ and $\textcolor{#DC143C}{\beta}$ provide **independent control** over superdiffusion and long-range memory
-
-<div class="grid grid-cols-2 gap-8 mt-4">
+<div class="grid gap-8 mt-4 items-center" style="grid-template-columns: 5fr 3fr;">
 <div>
-
-**Diffusion exponent** $a$
-
-$a \approx 1 - \frac{\textcolor{#6495ED}{\alpha}}{2} + \frac{\textcolor{#DC143C}{\beta}}{2}$
-
-- $\textcolor{#6495ED}{\alpha} < 2$ <span class="cucumber">increases</span> $a$ (superdiffusion)
-- $\textcolor{#DC143C}{\beta} < 1$ <span class="crimson">decreases</span> $a$ (subdiffusion)
-- Superdiffusion when $\textcolor{#6495ED}{\alpha} < \textcolor{#DC143C}{\beta} + 1$
-
-<div class="figure-placeholder mt-2" style="min-height: 140px;">
-
-Figure: Diffusion exponent heatmap ($\textcolor{#6495ED}{\alpha}$ × $\textcolor{#DC143C}{\beta}$)
-
+<div class="flex justify-center mt-4">
+  <img src=".figures/model_summary.svg" alt="Model summary" style="max-width: 100%; height: auto;" />
 </div>
 
 </div>
-<div>
+<div class="mt--3 tight-list" style="font-size: 0.9em;">
 
-**Spectral exponent** $b$
+**Diffusion exponent $a$** depends on $\textcolor{#6495ED}{\alpha}$ and $\textcolor{#DC143C}{\beta}$
+- $\textcolor{#6495ED}{\alpha} \downarrow \textrm{pushes } a \uparrow$ (superdiffusive)
+- $\textcolor{#DC143C}{\beta} \downarrow \textrm{pushes } a \downarrow$ (subdiffusive)
 
-Primarily controlled by $\textcolor{#DC143C}{\beta}$
+<br>
 
-- $\textcolor{#DC143C}{\beta}$ determines long-range correlations
-- Weak dependence on $\textcolor{#6495ED}{\alpha}$
-- Oscillatory component adds $\theta$/$\textcolor{#EF9901}{\gamma}$ peaks
+**Spectral exponent $b$** is only sensitive to $\textcolor{#DC143C}{\beta}$
+- $\textcolor{#DC143C}{\beta} \downarrow \textrm{pushes } b \uparrow$ (more long-range temporal dependencies)
 
-<div class="figure-placeholder mt-2" style="min-height: 140px;">
+<br>
 
-Figure: Spectral exponent heatmap ($\textcolor{#6495ED}{\alpha}$ × $\textcolor{#DC143C}{\beta}$)
+$\textcolor{#EF9901}{\gamma}$ adds oscillatory peak
 
-</div>
+<br>
 
-</div>
-</div>
-
----
-layout: two-cols
----
-
-# bFNS: Parameter Sweeps
-
-Sweeping $\textcolor{#6495ED}{\alpha}$ and $\textcolor{#DC143C}{\beta}$ across the anomalous regime
-
-<div class="figure-placeholder mt-4" style="min-height: 140px;">
-
-Figure: MAD curves for varying $\textcolor{#6495ED}{\alpha}$ at fixed $\textcolor{#DC143C}{\beta}$
-
-</div>
-
-<div class="figure-placeholder mt-4" style="min-height: 140px;">
-
-Figure: PSD curves for varying $\textcolor{#DC143C}{\beta}$ at fixed $\textcolor{#6495ED}{\alpha}$
-
-</div>
-
-::right::
-
-<div class="mt-12">
-
-**MAD:**
-- Decreasing $\textcolor{#6495ED}{\alpha}$ steepens the short-lag slope
-- $\textcolor{#DC143C}{\beta}$ modulates the crossover to long-lag behavior
-
-**PSD:**
-- Decreasing $\textcolor{#DC143C}{\beta}$ flattens the spectral slope ($b \to -1$)
-- $\textcolor{#6495ED}{\alpha}$ has minimal effect on spectral exponent
-- $\textcolor{#EF9901}{\gamma}$ adds oscillatory peaks without changing the slope
-
-<div class="dim-text mt-4">Experimental targets: $a \approx 0.6$, $b \approx -1.73$</div>
-
-</div>
-
----
-
-# bFNS as Empirical Mean-Field
-
-<div class="grid grid-cols-2 gap-8 mt-2">
-<div>
-
-**Construction:**
-- Replace Gaussian noise with bFNS process
-- Fit target distribution from circuit model inputs
-- Drive a single neuron with bFNS input
-
-<div class="figure-placeholder mt-4" style="min-height: 120px;">
-
-Figure: Mean-field schematic — circuit → bFNS → single neuron
-
-</div>
-
-</div>
-<div>
-
-**Enhanced fluctuation-driven regime**
-
-bFNS reproduces key features of the circuit model:
-- Mean membrane potential ~10 mV below threshold
-- Low firing rate, sparse spiking
-- Non-Gaussian, bumpy inputs with power-law tails
-
-<span class="highlight">Large Lévy jumps drive spikes despite low mean input</span>
-
-<div class="dim-text mt-2">→ "Super-fluctuation-driven" regime: the mean input can be even lower for a given firing rate</div>
-
-</div>
-</div>
-
-<div class="figure-placeholder mt-4" style="min-height: 100px;">
-
-Figure: Membrane potential trace + input current trace + step-size distribution (bFNS mean-field)
-
-</div>
-
----
-
-# Fano Factors: bFNS Reproduces Experimental Scaling
-
-<div class="grid grid-cols-2 gap-8 mt-4">
-<div>
-
-**Three regimes of Fano factor scaling:**
-
-1. <span class="cucumber">No memory ($\textcolor{#DC143C}{\beta} = 1$):</span> flat, Poisson-like (FF ≈ 1)
-2. <span class="crimson">Memory, no oscillations:</span> power-law scaling
-3. <span class="cornflowerblue">Memory + oscillations:</span> tempered power-law
-
-<div class="mt-4">
-
-The experimental Fano factor exponent ($c = 0.24$) falls within the bFNS parameter range
-
-</div>
-
-<div class="dim-text mt-4">Gaussian models cannot produce $c > 0$</div>
-
-</div>
-<div>
-
-<div class="figure-placeholder" style="min-height: 140px;">
-
-Figure: Fano factor curves — bFNS mean-field (three regimes)
-
-</div>
-
-<div class="figure-placeholder mt-4" style="min-height: 140px;">
-
-Figure: Fano factor — Neuropixels experiment (overlay or side-by-side)
-
-</div>
+**Experimental targets:**
+- $b \approx -1.7 \to \textcolor{#6495ED}{\alpha} \approx 1.5$
+- $a \approx 0.6 \to \textcolor{#DC143C}{\beta} \approx 0.85$
 
 </div>
 </div>
 
 ---
 
-# Summary: The Adaptive Fractional State
+# bFNS an an empirical mean field
+
+<div class="mt-2">
+
+<div class="grid grid-cols-3 gap-4 mt-0 text-sm">
+<div class="block">
+
+$\textcolor{#6495ED}{\alpha}$ superdiffusion enhances fluctuation-driven regime (lower mean $V$ for a given firing rate)
+
+</div>
+<div class="block">
+
+$\textcolor{#DC143C}{\beta}$ memory increases firing-rate variability and produces power-law Fano factor scaling
+
+</div>
+<div class="block">
+
+$\textcolor{#EF9901}{\gamma}$ momentum adds subthreshold oscillations, tempering Fano factor scaling
+
+</div>
+</div>
+
+</div>
+
+<div class="flex justify-center mt-0" style="margin-left: -4rem; margin-right: -2rem;">
+  <img src=".figures/mean_field_sweep.svg" alt="Mean field sweep" style="width: 90%; height: auto;" />
+</div>
+
+
+---
+
+# Summary: the adaptive fractional state
 
 <div class="grid grid-cols-3 gap-6 mt-6 text-center">
 <div>
@@ -446,7 +333,7 @@ $a > 0.5$ · $b > -2$ · $c > 0$
 
 Fractional calculus gives tunable exponents:
 
-<span class="cornflowerblue">$\textcolor{#6495ED}{\alpha}$</span> superdiffusion · <span class="crimson">$\textcolor{#DC143C}{\beta}$</span> memory · <span class="california">$\textcolor{#EF9901}{\gamma}$</span> oscillations
+<span class="cornflowerblue">$\textcolor{#6495ED}{\alpha}$</span> superdiffusion <br> <span class="crimson">$\textcolor{#DC143C}{\beta}$</span> long-range memory <br> <span class="california">$\textcolor{#EF9901}{\gamma}$</span> oscillations
 
 <div class="dim-text text-sm mt-2">Independent control over anomalous dynamics</div>
 
@@ -466,100 +353,83 @@ Competition between superdiffusion and subdiffusion:
 
 <div class="mt-8 text-center">
 
-bFNS provides a mechanistic bridge between **circuit dynamics** and **population statistics**
+bFNS provides a mechanistic bridge between anomalous **circuit dynamics** and **population statistics**
 
 </div>
 
 ---
 
-# Future Directions
-
-<div class="grid grid-cols-3 gap-6 mt-4">
-<div>
-
-**bFNS for saccadic eye movements**
-
-<div class="dim-text">Jude Metcalf</div>
-
-- Saccade dynamics show heavy-tailed statistics
-- bFNS as a model for oculomotor variability
-- Connects cortical dynamics to motor output
-
-</div>
-<div>
-
-**bFNS for decision making**
-
-<div class="dim-text">Aiden Sloots</div>
-
-- Drift-diffusion models with fractional noise
-- Heavy tails → faster escape from indecision
-- Memory → integration over longer timescales
-
-</div>
-<div>
-
-**$\theta$–$\textcolor{#EF9901}{\gamma}$ coupling**
-
-<div class="dim-text">Jude Metcalf</div>
-
-- Nested oscillations from bFNS momentum
-- Phase-amplitude coupling across timescales
-- Role of fractional memory in cross-frequency interactions
-
-</div>
+<div class="grid grid-cols-3 gap-6">
+<div class="col-span-2"><h1>Future directions</h1></div>
+<div class="text-right"><h1>Thank you!</h1></div>
 </div>
 
-<div class="mt-4">
+<div class="grid grid-cols-3 gap-6 mt-2 text-sm">
+<div class="col-span-2">
 
-**Also in progress:** Hierarchical variation of exponents across visual areas and layers — exponents vary systematically with adaptation strength and E/I balance
-
+<div class="block"><div class="block-title">Saccadic eye movements</div>
+<span class="dim-text">Jude Metcalf</span> — Heavy-tailed saccade dynamics modelled via bFNS
 </div>
 
----
-layout: center
----
-
-# Thank You
-
-<div class="mt-6">
-
-<span class="cornflowerblue">Non-Gaussian fluctuations</span> · <span class="crimson">Long-range memory</span> · <span class="california">Oscillations</span>
-
+<div class="block"><div class="block-title">Decision making</div>
+<span class="dim-text">Aiden Sloots</span> — Fractional drift-diffusion with heavy tails and memory
 </div>
 
-<div class="grid grid-cols-2 gap-12 mt-8 text-sm">
-<div>
+<div class="block"><div class="block-title">Hierarchical exponents</div>
+Exponent variation across visual areas, layers, and E/I balance
+</div>
+
+<div class="block"><div class="block-title">
+Theta--gamma coupling</div>
+<span class="dim-text">Jude Metcalf</span> -- Interactions between adaptation and momentum
+</div>
+
+
+<div class="block"><div class="block-title">Machine learning and sampling efficiency</div>
+Bayesian inference via heavy-tailed, memory-driven sampling
+</div>
+
+</div>
+<div class="flex flex-col items-center justify-start text-center">
+
+
+<div class="mt--5 text-sm">
+
 
 **Brendan Harris** & Pulin Gong
+
+
 
 School of Physics, University of Sydney
 
 </div>
-<div>
 
-**Collaborators:**
+<!-- <img src="/.figures/logo.svg" class="w-32 mt-4" /> -->
+<div class="mt-0 text-xs flex flex-col gap-2 items-start">
+<a href="mailto:brendan.harris@sydney.edu.au" class="flex items-center gap-2 !border-none"><carbon-email class="w-4 h-4 inline" /> brendan.harris@sydney.edu.au</a>
+<a href="https://github.com/brendanjohnharris" class="flex items-center gap-2 !border-none"><carbon-logo-github class="w-4 h-4 inline" /> brendanjohnharris</a>
+<a href="https://bsky.app/profile/brendanjohnharris.bsky.social" class="flex items-center gap-2 !border-none"><carbon-logo-bluesky class="w-4 h-4 inline" /> @brendanjohnharris</a>
+<br>
+</div>
 
-Jude Metcalf · Aiden Sloots
+<img src="/.figures/link.svg" class="mt--1 w-55" />
+<a href="https://brendanjohnharris.github.io/WorkingRegimeSlides/" class="">Slide deck</a>
 
 </div>
 </div>
 
-<div class="dim-text text-sm mt-8">
-
-Contact / links / QR code here
-
-</div>
-
 ---
-layout: section
+layout: center
+class: supplementary
 ---
 
-# Supplementary Slides
+# Supplementary slides
 
 ---
+class: supplementary
+---
 
-# S1: Exponent Variation Across Hierarchy
+# S1: exponent variation across hierarchy
 
 Diffusion, spectral, and variability exponents across layers and areas
 
@@ -574,8 +444,10 @@ Figure: Exponents across cortical layers and visual areas
 - Variability exponent increases in higher areas
 
 ---
+class: supplementary
+---
 
-# S2: Input Distribution Parameters
+# S2: input distribution parameters
 
 Distribution of stable distribution parameters across neurons
 
@@ -590,8 +462,10 @@ Figure: Stable distribution parameters across neurons
 - Scale and location parameters vary across neurons
 
 ---
+class: supplementary
+---
 
-# S3: Sampling Accuracy
+# S3: sampling accuracy
 
 bFNS maintains accurate sampling across parameter space
 
@@ -615,8 +489,10 @@ bFNS maintains accurate sampling across parameter space
 <div class="dim-text text-center mt-4">Low Wasserstein distance between target and empirical distributions</div>
 
 ---
+class: supplementary
+---
 
-# S4: Circuit Model Parameters
+# S4: circuit model parameters
 
 <div class="grid grid-cols-2 gap-8 text-sm">
 <div>
@@ -642,7 +518,7 @@ bFNS maintains accurate sampling across parameter space
 - $\rho = 20000$ /mm²
 - $L = 0.5$ mm
 - E:I ratio $= 4$
-- $\sigma_{EE} = 0.06$ mm
+- $\eta_{EE} = 0.06$ mm
 - $K_{EE} = 260$
 - $J_{EE} = 0.00105$ μS
 
