@@ -20,6 +20,12 @@ transition: slide-left
 
 School of Physics<br>The University of Sydney
 
+<div style="position: absolute; bottom: 32px; left: 40px; font-size: 0.8em;">
+
+[brendanjohnharris.github.io/WorkingRegimeSlides](https://brendanjohnharris.github.io/WorkingRegimeSlides)
+
+</div>
+
 ---
 
 # What is the working regime of the visual cortex?
@@ -72,7 +78,7 @@ School of Physics<br>The University of Sydney
 
 $$\frac{dV}{dt} = f(V) + \eta\,\xi(t)$$
 
-where $\xi(t)$ is white Gaussian noise.
+where $\xi(t)$ is white (or OU) Gaussian noise.
 </div></div>
 
 <img src="/.figures/mean_field.svg" class="w-full max-h-100" style="margin-top: 12px;" />
@@ -163,7 +169,12 @@ Local oscillations
 
 
 
-<div class="grid gap-8 mt-4" style="grid-template-columns: 5fr 7fr;">
+<div class="grid gap-8 mt-4" style="grid-template-columns: 7fr 5fr;">
+
+<div class="flex justify-right my-4">
+  <img src=".figures/fractional_summary.svg" alt="Fractional derivatives summary" style="max-width: 100%; height: auto;" />
+</div>
+
 <div>
 
 <div class="text-xs mt-12">
@@ -179,10 +190,6 @@ Local oscillations
 
 </div>
 <div>
-
-<div class="flex justify-right my-4">
-  <img src=".figures/fractional_summary.svg" alt="Fractional derivatives summary" style="max-width: 100%; height: auto;" />
-</div>
 
 </div>
 </div>
@@ -261,20 +268,18 @@ $\textcolor{#EF9901}{\gamma}$ momentum adds subthreshold oscillations, tempering
 # Summary: the adaptive fractional state
 
 <div class="grid grid-cols-3 gap-6 mt-6 text-center">
-<div>
-
-**Experiment + circuit model**
+<div class="block">
+<div class="block-title">Experiment + circuit model</div>
 
 Visual cortex shows anomalous scaling:
 
-$a > 0.5$ · $b > -2$ · $c > 0$
+$a > 0.5$ | $b > -2$ | $c > 0$
 
 <div class="dim-text text-sm mt-2">Inconsistent with Gaussian mean-field</div>
 
 </div>
-<div>
-
-**bFNS model**
+<div class="block">
+<div class="block-title">bFNS model</div>
 
 Fractional calculus gives tunable exponents:
 
@@ -283,9 +288,8 @@ Fractional calculus gives tunable exponents:
 <div class="dim-text text-sm mt-2">Independent control over anomalous dynamics</div>
 
 </div>
-<div>
-
-**Functional implication**
+<div class="block">
+<div class="block-title">Functional implication</div>
 
 Competition between superdiffusion and subdiffusion:
 
