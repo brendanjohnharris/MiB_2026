@@ -3,7 +3,7 @@
 #   - PNGs and SVGs: copied directly (SVGs get recolored)
 #   - PDFs: converted to SVG via mutool, then recolored
 #   - Color replacement: black -> #cccccc, white -> transparent
-# Skips files that are already up to date.
+# Wipes .figures/ and rebuilds from scratch each run.
 
 set -euo pipefail
 
@@ -11,6 +11,7 @@ SCRIPT_DIR="$(dirname "$0")"
 SRC_DIR="$SCRIPT_DIR/../figures"
 DST_DIR="$SCRIPT_DIR/../.figures"
 
+rm -rf "$DST_DIR"
 mkdir -p "$DST_DIR"
 
 # Recolor an SVG: black -> #cccccc, white -> transparent
@@ -54,34 +55,26 @@ process_file() {
     png)
       local dst="$DST_DIR/$base.png"
       mkdir -p "$(dirname "$dst")"
-      if [ ! -f "$dst" ] || [ "$src" -nt "$dst" ]; then
-        echo "Copying $(basename "$src")"
-        cp "$src" "$dst"
-      fi
+      echo "Copying $(basename "$src")"
+      cp "$src" "$dst"
       ;;
     svg)
       local dst="$DST_DIR/$base.svg"
       mkdir -p "$(dirname "$dst")"
-      if [ ! -f "$dst" ] || [ "$src" -nt "$dst" ]; then
-        echo "Copying + recoloring $(basename "$src")"
-        cp "$src" "$dst"
-        recolor_svg "$dst"
-      fi
+      echo "Copying + recoloring $(basename "$src")"
+      cp "$src" "$dst"
+      recolor_svg "$dst"
       ;;
     pdf)
       local dst="$DST_DIR/$base.svg"
       mkdir -p "$(dirname "$dst")"
-      if [ ! -f "$dst" ] || [ "$src" -nt "$dst" ]; then
-        echo "Converting $(basename "$src") -> ${base}.svg"
-        # mutool appends page number: output1.svg for single-page PDFs
-        local tmp_dst="$DST_DIR/${base}1.svg"
-        mutool convert -F svg -o "$DST_DIR/$base.svg" "$src" 2>/dev/null
-        # Rename page-numbered output if mutool created it
-        if [ -f "$tmp_dst" ] && [ ! -f "$dst" ]; then
-          mv "$tmp_dst" "$dst"
-        fi
-        recolor_svg "$dst"
+      echo "Converting $(basename "$src") -> ${base}.svg"
+      local tmp_dst="$DST_DIR/${base}1.svg"
+      mutool convert -F svg -o "$DST_DIR/$base.svg" "$src" 2>/dev/null
+      if [ -f "$tmp_dst" ] && [ ! -f "$dst" ]; then
+        mv "$tmp_dst" "$dst"
       fi
+      recolor_svg "$dst"
       ;;
   esac
 }

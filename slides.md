@@ -20,7 +20,7 @@ transition: slide-left
 
 School of Physics<br>The University of Sydney
 
-<div style="position: absolute; bottom: 32px; left: 40px; font-size: 0.8em;">
+<div style="position: absolute; bottom: 32px; font-size: 0.8em;">
 
 [brendanjohnharris.github.io/WorkingRegimeSlides](https://brendanjohnharris.github.io/WorkingRegimeSlides)
 
@@ -87,40 +87,41 @@ where $\xi(t)$ is white (or OU) Gaussian noise.
 
 ---
 
-# Dynamical exponents
+# Is the white Gaussian assumption valid?
 
 <!-- The choice of Gaussian noise **is not neutral** — it locks in specific dynamical exponents -->
 
 <div class="grid grid-cols-2 gap-4">
 <div class="block">
-<div class="block-title">Diffusion</div>
+<div class="block-title">Gaussian assumption</div>
 
-MAD (width of probability density) expands $\propto \tau^a$ with $a = 0.5$
+- Normal diffusion: <span class="cornflowerblue">MAD</span> $\propto \tau^{a}$ with $a = 0.5$
+- No memory: <span class="alert-text">PSD</span> $\propto f^{b}$ with $b = -2$
 
 </div>
 <div class="block">
-<div class="block-title">Spectral</div>
+<div class="block-title">Experiment and biophysical circuit model</div>
 
-PSD $\propto f^b$ with $b = -2$, indicating local temporal correlations
+- <span class="cornflowerblue">Superdiffusion</span>: $a \approx 0.6$ &ensp;
+- <span class="alert-text">Long-range dependence</span>: $b \approx -1.7$ &ensp;
 
 </div>
 </div>
 
-<div class="alert-text mt-2">But experiment and circuit models show anomalous exponents that contradict these values</div>
+<!-- <div class="alert-text mt-2">But experiment and circuit models show anomalous exponents that contradict these values</div> -->
 
-<img src="/.figures/experiment_circuit_statistics.svg" class="w-full" style="margin-top: auto;" />
+<img src="/.figures/experiment_circuit_statistics.svg" class="w-9/10 mx-auto" style="margin-top: auto;" />
 
 ---
 
-# How do we capture anomalous dynamics?
+# Can we choose a better mean-field input?
 
-<div class="text-center mt-6">
+<div class="grid gap-6 mt-2 items-center" style="grid-template-columns: 1fr 1fr;">
+<div>
 
+<div style="font-size: 1.3em;">
 
-
-<div style="font-size: 2em;">
-
-**Bi-fractional mean-field input**
+<!-- **Bi-fractional Langevin with momentum** -->
 
 $${}^C\!D_t^{\textcolor{#DC143C}{\beta}}\, x = -\eta\,\nabla \tilde{V}_{\textcolor{#6495ED}{\alpha}} + {\textcolor{#EF9901}{\gamma}}\, p + \eta^{1/{\textcolor{#6495ED}{\alpha}}}\,\xi_{{\textcolor{#6495ED}{\alpha}},{\textcolor{#DC143C}{\beta}}}$$
 
@@ -128,10 +129,8 @@ $$\frac{dp}{dt} = -{\textcolor{#EF9901}{\gamma}}\,\nabla \tilde{V}_{\textcolor{#
 
 </div>
 
-</div>
-
-<div class="grid grid-cols-3 gap-6 mt-4">
-<div class="block">
+<div class="grid grid-cols-1 gap-2 mt-4 text-sm">
+<div class="block" style="padding: 4px 10px;">
 <div class="block-title cornflowerblue">
 
 $\textcolor{#6495ED}{\alpha}$ — Space-fractional order
@@ -141,7 +140,7 @@ $\textcolor{#6495ED}{\alpha}$ — Space-fractional order
 Heavy-tailed jumps → superdiffusion
 
 </div>
-<div class="block">
+<div class="block" style="padding: 4px 10px;">
 <div class="block-title crimson">
 
 $\textcolor{#DC143C}{\beta}$ — Time-fractional order
@@ -151,7 +150,7 @@ $\textcolor{#DC143C}{\beta}$ — Time-fractional order
 Power-law memory → long-range correlations
 
 </div>
-<div class="block">
+<div class="block" style="padding: 4px 10px;">
 <div class="block-title california">
 
 $\textcolor{#EF9901}{\gamma}$ — Momentum coupling
@@ -160,6 +159,12 @@ $\textcolor{#EF9901}{\gamma}$ — Momentum coupling
 
 Local oscillations
 
+</div>
+</div>
+
+</div>
+<div class="flex items-center justify-center">
+  <img src="/.figures/timeseries_parameter_effects.svg" alt="Timeseries parameter effects" style="max-width: 100%;" />
 </div>
 </div>
 
@@ -199,7 +204,7 @@ Local oscillations
 
 ---
 
-# bFNS: tunable diffusion and spectral exponents
+# Tunable diffusion and spectral exponents
 
 <div class="grid gap-8 mt-4 items-center" style="grid-template-columns: 5fr 3fr;">
 <div>
@@ -234,19 +239,19 @@ $\textcolor{#EF9901}{\gamma}$ adds oscillatory peak
 
 ---
 
-# bFNS an an empirical mean field
+# Empirical mean-field input model
 
 <div class="mt-2">
 
 <div class="grid grid-cols-3 gap-4 mt-0 text-sm">
 <div class="block">
 
-$\textcolor{#6495ED}{\alpha}$ superdiffusion enhances fluctuation-driven regime (lower mean $V$ for a given firing rate)
+$\textcolor{#6495ED}{\alpha}$ superdiffusion enhances fluctuation-driven regime (lower mean membrane potential for a given firing rate)
 
 </div>
 <div class="block">
 
-$\textcolor{#DC143C}{\beta}$ memory increases firing-rate variability and produces power-law Fano factor scaling................add fano factor for experiment here.................
+$\textcolor{#DC143C}{\beta}$ memory increases firing-rate variability and produces power-law Fano factor scaling.
 
 </div>
 <div class="block">
@@ -258,6 +263,7 @@ $\textcolor{#EF9901}{\gamma}$ momentum adds subthreshold oscillations, tempering
 
 </div>
 
+<br>
 <div class="flex justify-center mt-0" style="margin-left: -4rem; margin-right: -2rem;">
   <img src=".figures/mean_field_sweep.svg" alt="Mean field sweep" style="width: 90%; height: auto;" />
 </div>
@@ -302,7 +308,7 @@ Competition between superdiffusion and subdiffusion:
 
 <div class="mt-8 text-center">
 
-bFNS provides a mechanistic bridge between anomalous **circuit dynamics** and **population statistics**
+Our bi-fractional model provides a mechanistic bridge between anomalous **circuit dynamics** and **population statistics**
 
 </div>
 
