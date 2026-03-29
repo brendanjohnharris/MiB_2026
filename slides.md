@@ -14,7 +14,7 @@ canvasWidth: 980
 transition: slide-left
 ---
 
-# The Adaptive Fractional Regime of Visual Cortex
+# <span style="font-size: 0.98em;">Adaptive Fractional Dynamics in the Visual Cortex</span>
 
 **Brendan Harris & Pulin Gong**
 
@@ -22,7 +22,9 @@ School of Physics<br>The University of Sydney
 
 <div style="position: absolute; bottom: 32px; font-size: 0.8em;">
 
-[brendanjohnharris.github.io/WorkingRegimeSlides](https://brendanjohnharris.github.io/WorkingRegimeSlides)
+**Slides**: [brendanjohnharris.github.io/WorkingRegimeSlides](https://brendanjohnharris.github.io/WorkingRegimeSlides)
+
+**Poster**: [github.com/brendanjohnharris/MiB_2026](github.com/brendanjohnharris/MiB_2026)
 
 </div>
 
@@ -33,24 +35,30 @@ School of Physics<br>The University of Sydney
 <div class="grid gap-8 mt-2" style="grid-template-columns: 6fr 6fr;">
 <div>
 
-<div style="background: #cccccc; color: #282c34; border-radius: 8px; padding: 8px 16px; display: inline-block; font-weight: bold; margin-bottom: 12px; margin-top: 12px;">Spontaneous activity is fluctuation-driven</div>
+<div class="block">
+<div class="block-title">Spontaneous activity is fluctuation-driven</div>
 
-- Low firing rates (~1--10 Hz) <span class="dim-text">[[Barth & Poulet 2012](https://doi.org/10.1016/j.tins.2012.03.008)]</span>
-- Sparse coding <span class="dim-text">[[Olshausen & Field 2004](https://doi.org/10.1016/j.conb.2004.07.007)]</span>
-- Mean membrane potentials far from threshold <span class="dim-text">[[Carandini 2000](https://doi.org/10.1523/JNEUROSCI.20-01-00470.2000); [DeWeese & Zador 2006](https://doi.org/10.1523/jneurosci.2813-06.2006)]</span>
+- Low firing rates (~1--10 Hz) <span class="dim-text" style="font-size: 0.75em;">[[Barth & Poulet 2012](https://doi.org/10.1016/j.tins.2012.03.008)]</span>
+- Sparse coding <span class="dim-text" style="font-size: 0.75em;">[[Olshausen & Field 2004](https://doi.org/10.1016/j.conb.2004.07.007)]</span>
+- Low mean membrane potentials <span class="dim-text" style="font-size: 0.75em;">[[Carandini 2000](https://doi.org/10.1523/JNEUROSCI.20-01-00470.2000)]</span>
+
+</div>
 
 </div>
 <div>
 
+<div class="block block-alert">
+<div class="block-title">But also shows 'anomalous' dynamics</div>
 
-<div style="background: #cccccc; color: #282c34; border-radius: 8px; padding: 8px 16px; display: inline-block; font-weight: bold; margin-bottom: 12px; margin-top: 12px;">But also highly variable and non-stationary</div>
-
-- Nested oscillations and $1/f$ <span class="dim-text">[[Poil et al. 2012](https://doi.org/10.1523/JNEUROSCI.5990-11.2012)]</span>
-- Super-Poissonian spikes <span class="dim-text">[[Churchland et al. 2010](https://doi.org/10.1038/nn.2501)]</span>
-- Bumpy synaptic inputs <span class="dim-text">[[Okun & Lampl 2008](https://doi.org/10.1038/nn.2105)]</span>
+- Nested oscillations and $1/f$ <span class="dim-text" style="font-size: 0.75em;">[[Poil et al. 2012](https://doi.org/10.1523/JNEUROSCI.5990-11.2012)]</span>
+- Super-Poissonian spikes <span class="dim-text" style="font-size: 0.75em;">[[Churchland et al. 2010](https://doi.org/10.1038/nn.2501)]</span>
+- Bumpy synaptic inputs <span class="dim-text" style="font-size: 0.75em;">[[DeWeese & Zador 2006](https://doi.org/10.1523/jneurosci.2813-06.2006)]</span>
 
 </div>
 </div>
+</div>
+
+<br>
 
 <img src="/.figures/brain_trace.svg" class="w-full max-h-52" style="margin-top: 12px;" />
 
@@ -60,7 +68,24 @@ School of Physics<br>The University of Sydney
 
 ---
 
-# Classical model: balanced-state network
+# Classical theory for the fluctuation-driven regime
+
+<!-- <div class="grid grid-cols-2 gap-4">
+<div class="block">
+<div class="block-title">Gaussian assumption</div>
+
+- Normal diffusion: <span class="cornflowerblue">MAD</span> $\propto \tau^{a}$ with $a = 0.5$
+- No memory: <span class="alert-text">PSD</span> $\propto f^{b}$ with $b = -2$
+
+</div>
+<div class="block">
+<div class="block-title">Experiment and biophysical circuit model</div>
+
+- <span class="cornflowerblue">Superdiffusion</span>: $a \approx 0.6$ &ensp;
+- <span class="alert-text">Long-range dependence</span>: $b \approx -1.7$ &ensp;
+
+</div>
+</div> -->
 
 <div class="grid grid-cols-2 gap-8 mt-2">
 <div>
@@ -85,26 +110,34 @@ where $\xi(t)$ is white (or OU) Gaussian noise.
 
 </div>
 
+
 ---
 
-# Is the white Gaussian assumption valid?
+# Quantifying anomalous dynamics
 
-<!-- The choice of Gaussian noise **is not neutral** — it locks in specific dynamical exponents -->
-
-<div class="grid grid-cols-2 gap-4">
+<div class="grid grid-cols-2 gap-6 mt-4">
 <div class="block">
-<div class="block-title">Gaussian assumption</div>
+<div class="block-title">Diffusion exponent $a$</div>
 
-- Normal diffusion: <span class="cornflowerblue">MAD</span> $\propto \tau^{a}$ with $a = 0.5$
-- No memory: <span class="alert-text">PSD</span> $\propto f^{b}$ with $b = -2$
+Mean absolute deviation scales as:
+
+$$\text{MAD}(\tau) \propto \tau^{a}$$
+
+- $a = 0.5$ — normal (Brownian) diffusion
+- $a > 0.5$ — superdiffusion (fast spreading)
+- $a < 0.5$ — subdiffusion (slow spreading)
 
 </div>
 <div class="block">
-<div class="block-title">Experiment and biophysical circuit model</div>
+<div class="block-title">Spectral exponent $b$</div>
 
-- <span class="cornflowerblue">Superdiffusion</span>: $a \approx 0.6$ &ensp;
-- <span class="alert-text">Long-range dependence</span>: $b \approx -1.7$ &ensp;
+Power spectral density scales as:
 
+$$\text{PSD}(f) \propto f^{b}$$
+
+- $b = -2$ — white-noise-driven (memoryless)
+- $b > -2$ — negatively correlated increments (antipersistent)
+- $b < -2$ — positively correlated increments (persistent)
 </div>
 </div>
 
@@ -114,7 +147,7 @@ where $\xi(t)$ is white (or OU) Gaussian noise.
 
 ---
 
-# Can we choose a better mean-field input?
+# How can we capture anomalous dynamics?
 
 <div class="grid gap-6 mt-2 items-center" style="grid-template-columns: 1fr 1fr;">
 <div>
@@ -133,11 +166,11 @@ $$\frac{dp}{dt} = -{\textcolor{#EF9901}{\gamma}}\,\nabla \tilde{V}_{\textcolor{#
 <div class="block" style="padding: 4px 10px;">
 <div class="block-title cornflowerblue">
 
-$\textcolor{#6495ED}{\alpha}$ — Space-fractional order
+$\textcolor{#6495ED}{\alpha}$ — Space-fractional order <span class="dim-text">[[Qi & Gong 2022](https://doi.org/10.1038/s41467-022-32279-z)]</span>
 
 </div>
 
-Heavy-tailed jumps → superdiffusion
+Heavy-tailed step sizes → superdiffusion
 
 </div>
 <div class="block" style="padding: 4px 10px;">
@@ -168,8 +201,7 @@ Local oscillations
 </div>
 </div>
 
----
-
+<!-- ---
 # What do fractional derivatives do?
 
 
@@ -197,14 +229,15 @@ Local oscillations
 <div>
 
 </div>
-</div>
+</div> -->
+
 
 
 
 
 ---
 
-# Tunable diffusion and spectral exponents
+# Competitive superdiffusion and subdiffusion
 
 <div class="grid gap-8 mt-4 items-center" style="grid-template-columns: 5fr 3fr;">
 <div>
@@ -216,12 +249,14 @@ Local oscillations
 <div class="mt--3 tight-list" style="font-size: 0.9em;">
 
 **Diffusion exponent $a$** depends on $\textcolor{#6495ED}{\alpha}$ and $\textcolor{#DC143C}{\beta}$
+
 - $\textcolor{#6495ED}{\alpha} \downarrow \textrm{pushes } a \uparrow$ (superdiffusive)
 - $\textcolor{#DC143C}{\beta} \downarrow \textrm{pushes } a \downarrow$ (subdiffusive)
 
 <br>
 
 **Spectral exponent $b$** is only sensitive to $\textcolor{#DC143C}{\beta}$
+
 - $\textcolor{#DC143C}{\beta} \downarrow \textrm{pushes } b \uparrow$ (more long-range temporal dependencies)
 
 <br>
@@ -231,6 +266,7 @@ $\textcolor{#EF9901}{\gamma}$ adds oscillatory peak
 <br>
 
 **Experimental targets:**
+
 - $b \approx -1.7 \to \textcolor{#6495ED}{\alpha} \approx 1.5$
 - $a \approx 0.6 \to \textcolor{#DC143C}{\beta} \approx 0.85$
 
@@ -271,45 +307,57 @@ $\textcolor{#EF9901}{\gamma}$ momentum adds subthreshold oscillations, tempering
 
 ---
 
-# Summary: the adaptive fractional state
+# ~~What~~ _Why_ is the working regime of the visual cortex?
 
-<div class="grid grid-cols-3 gap-6 mt-6 text-center">
+<div class="grid grid-cols-2 gap-6 mt-4">
 <div class="block">
-<div class="block-title">Experiment + circuit model</div>
+<div class="block-title">Classical mean-field</div>
 
-Visual cortex shows anomalous scaling:
+Gaussian input currents — captures <span class="highlight">fluctuation-driven</span> spiking
 
-$a > 0.5$ | $b > -2$ | $c > 0$
+<br>
 
-<div class="dim-text text-sm mt-2">Inconsistent with Gaussian mean-field</div>
+But fails to reproduce:
 
-</div>
-<div class="block">
-<div class="block-title">bFNS model</div>
+- Oscillatory dynamics
+- Long-range temporal correlations
+- Superdiffusive variability
 
-Fractional calculus gives tunable exponents:
-
-<span class="cornflowerblue">$\textcolor{#6495ED}{\alpha}$</span> superdiffusion <br> <span class="crimson">$\textcolor{#DC143C}{\beta}$</span> long-range memory <br> <span class="california">$\textcolor{#EF9901}{\gamma}$</span> oscillations
-
-<div class="dim-text text-sm mt-2">Independent control over anomalous dynamics</div>
+<div class="dim-text text-sm mt-2">Inconsistent with anomalous statistics observed in mouse visual cortex</div>
 
 </div>
 <div class="block">
-<div class="block-title">Functional implication</div>
+<div class="block-title">Bi-fractional model (bFNS)</div>
 
-Competition between superdiffusion and subdiffusion:
+Replace Gaussian input with fractional noise — fit to circuit biophysics
 
-<span class="highlight">Exploration</span> vs <span class="highlight">Exploitation</span>
+<br>
 
-<div class="dim-text text-sm mt-2">Navigates the flexibility–stability trade-off</div>
+Adds three anomalous properties:
+
+- <span class="cornflowerblue">$\textcolor{#6495ED}{\alpha}$</span> — **superdiffusion** (heavy-tailed jumps)
+- <span class="crimson">$\textcolor{#DC143C}{\beta}$</span> — **long-range temporal correlations**
+- <span class="california">$\textcolor{#EF9901}{\gamma}$</span> — **oscillations** (subthreshold)
+
+<div class="dim-text text-sm mt-2">Independent tuning of all three properties via fractional calculus</div>
 
 </div>
 </div>
 
-<div class="mt-8 text-center">
+<div class="grid grid-cols-2 gap-6 mt-4 items-center">
+<div class="block">
+<div class="block-title">Why? Exploration vs exploitation</div>
 
-Our bi-fractional model provides a mechanistic bridge between anomalous **circuit dynamics** and **population statistics**
+<span class="highlight">Superdiffusive jumps</span> → rapid state-space exploration
 
+<span class="highlight">LRTCs</span> → stabilise local activity, enabling exploitation
+
+<div class="dim-text text-sm mt-3">The cortex may use anomalous dynamics to navigate the flexibility–stability trade-off</div>
+
+</div>
+<div class="flex justify-center">
+  <img src=".figures/brain_trace.svg" alt="Neural trace" style="width: 100%; height: auto; max-height: 130px; object-fit: contain;" />
+</div>
 </div>
 
 ---
@@ -322,26 +370,8 @@ Our bi-fractional model provides a mechanistic bridge between anomalous **circui
 <div class="grid grid-cols-3 gap-6 mt-2 text-sm">
 <div class="col-span-2">
 
-<div class="block"><div class="block-title">Saccadic eye movements</div>
-<span class="dim-text">Jude Metcalf</span> — Heavy-tailed saccade dynamics modelled via bFNS
-</div>
-
-<div class="block"><div class="block-title">Decision making</div>
-<span class="dim-text">Aiden Sloots</span> — Fractional drift-diffusion with heavy tails and memory
-</div>
-
-<div class="block"><div class="block-title">Hierarchical exponents</div>
-Exponent variation across visual areas, layers, and E/I balance
-</div>
-
-<div class="block"><div class="block-title">
-Theta--gamma coupling</div>
-<span class="dim-text">Jude Metcalf</span> -- Interactions between adaptation and momentum
-</div>
-
-
-<div class="block"><div class="block-title">Machine learning and sampling efficiency</div>
-Bayesian inference via heavy-tailed, memory-driven sampling
+<div class="block"><div class="block-title">other applications</div>
+ .... systems iwth LRTCS appear in ,......... list out piotentiall ysueful...
 </div>
 
 </div>

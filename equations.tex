@@ -1,0 +1,52 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath, amssymb}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{stix2}
+\usepackage{xcolor}
+
+\definecolor{cornflowerblue}{HTML}{6495ED}
+\definecolor{crimson}{HTML}{DC143C}
+\definecolor{california}{HTML}{EF9901}
+
+\newcommand{\fa}{\textcolor{cornflowerblue}{\alpha}}
+\newcommand{\fb}{\textcolor{crimson}{\beta}}
+\newcommand{\fg}{\textcolor{california}{\gamma}}
+
+\title{The Bi-Fractional Neural Sampling (bFNS) Model}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+The bi-fractional neural sampling (bFNS) model is defined by a pair of coupled equations on a one-dimensional position $x$ and auxiliary momentum $p$:
+\begin{equation}
+    \label{eq:bfns}
+    \begin{aligned}
+        {}^C D_t^{\fb} x &= -\eta \nabla \tilde{V}_{\fa} + {\fg} p + \eta^{\frac{1}{\fa}} \xi_{{\fa},{\fb}}\,,\\
+        \frac{dp}{dt} &= -{\fg} \nabla \tilde{V}_{\fa} \,,
+    \end{aligned}
+\end{equation}
+where ${\fa} \in (1, 2]$ is the spatial fractional order, ${\fb} \in (0, 1]$ is the temporal fractional order, ${\fg}$ is the momentum coupling strength, and $\eta$ is the noise intensity. Here $D_t$ is the standard temporal derivative, $\nabla$ is the regular spatial gradient, and $\xi_{{\fa},{\fb}}(t)$ is a linear fractional stable noise process with L\'evy order ${\fa}$ and self-similarity exponent $H = \tfrac{1}{2} + \tfrac{1}{{\fa}} - \tfrac{{\fb}}{2}$.
+
+The Caputo fractional temporal derivative ${}^C D_t^{\fb}$ of order ${\fb}$ is defined as:
+\begin{equation}
+    \label{eq:caputo}
+    {}^C D_t^{\fb}[f(t)] = \frac{1}{\Gamma(1-{\fb})} \int_0^t \frac{f'(\tau)}{(t-\tau)^{\fb}}\, d\tau\,,
+\end{equation}
+where $\Gamma(z) = \int_0^\infty e^{-u} u^{z-1}\, du$ is the gamma function.
+
+The effective potential $\tilde{V}_{\fa}(x)$ is defined through its gradient as:
+\begin{equation}
+    \label{eq:effective_potential}
+    \nabla \tilde{V}_{\fa}(x) = \frac{-\nabla \left[\mathcal{D}_x^{{\fa} - 2}\pi\right]}{\pi}\,,
+\end{equation}
+where $\pi(x)$ is the target distribution and $\mathcal{D}_x^{{\fa} - 2}$ is the Riesz fractional derivative of order ${\fa} - 2$. When ${\fa} = 2$, this reduces to the classical Langevin potential $V(x) = -\log \pi(x)$.
+
+The Riesz fractional spatial derivative of order ${\fa}$ is defined in the Fourier domain by:
+\begin{equation}
+    \label{eq:riesz}
+    \widehat{\mathcal{D}_x^{\fa} f}(k) = -|k|^{\fa} \hat{f}(k)\,.
+\end{equation}
+
+\end{document}
