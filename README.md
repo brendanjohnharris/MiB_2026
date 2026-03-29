@@ -1,8 +1,8 @@
-# OHBM_2025
-Poster file for "_Nested spatiotemporal dynamics organize hierarchical processing in the mouse visual cortex_", presented at OHBM 2025 in Brisbane (Poster 2072, 27th & 28th June)
+# MiB_2026
+Poster file for "_Adaptive fractional dynamics in the visual cortex_", presented at Maths in the Brain 2026 (Melbourne).
 
 ## Additional links
 
-💻: [Code repository](https://github.com/brendanjohnharris/SpatiotemporalMotifs.jl)
+Talk slides: [WorkingRegimeSlides](https://brendanjohnharris.github.io/WorkingRegimeSlides/)
 
-![OHBM2025](OHBM2025.png)
+![MiB2026](MiB_2026.jpg)
