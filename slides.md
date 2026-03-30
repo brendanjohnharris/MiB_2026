@@ -16,6 +16,7 @@ download: true
 export:
   timeout: 60000
   withClicks: false
+  waitUntil: networkidle
 ---
 
 # <span style="font-size: 0.98em;">Adaptive Fractional States of the Visual Cortex</span>
