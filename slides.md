@@ -22,7 +22,7 @@ School of Physics<br>The University of Sydney
 
 <div style="position: absolute; bottom: 32px; font-size: 0.8em;">
 
-**Slides**: [brendanjohnharris.github.io/MiB_2026_Slides](https://brendanjohnharris.github.io/MiB_2026_Slides)
+**Slides**: [brendanjohnharris.github.io/MiB_2026](https://brendanjohnharris.github.io/MiB_2026)
 
 **Poster**: [github.com/brendanjohnharris/MiB_2026](github.com/brendanjohnharris/MiB_2026)
 
@@ -382,7 +382,7 @@ School of Physics, University of Sydney
 </div>
 
 <img src="/.figures/link.svg" class="mt--1 w-55" />
-<a href="https://brendanjohnharris.github.io/MiB_2026_Slides/" class="">Slide deck</a>
+<a href="https://brendanjohnharris.github.io/MiB_2026/" class="">Slide deck</a>
 
 </div>
 
@@ -401,92 +401,24 @@ class: supplementary
 class: supplementary
 ---
 
-# S1: Fractional derivatives: drift and diffusion
+# S1: Fractional derivatives on drift and diffusion
 
-<img src="/.figures/fractional_summary.svg" class="w-full h-full object-contain" />
-
----
-class: supplementary
----
-
-# S2: input distribution parameters
-
-Distribution of stable distribution parameters across neurons
-
-<div class="figure-placeholder mt-4" style="min-height: 200px;">
-
-Figure: Stable distribution parameters across neurons
-
-</div>
-
-- Tail index $\approx 1.5$
-- Skewness $\approx 0$ (symmetric)
-- Scale and location parameters vary across neurons
+<img src="/.figures/fractional_summary.svg" alt="Fractional derivatives summary" class="w-full object-contain" style="max-height: calc(100% - 3rem);" />
 
 ---
 class: supplementary
 ---
 
-# S3: sampling accuracy
+# S2: hierarchical variation of dynamical exponents
 
-bFNS maintains accurate sampling across parameter space
-
-<div class="grid grid-cols-2 gap-8 mt-4">
-<div class="text-center">
-
-**Unimodal potential**
-
-<div class="figure-placeholder" style="min-height: 150px;">Accuracy heatmap</div>
-
-</div>
-<div class="text-center">
-
-**Bimodal potential**
-
-<div class="figure-placeholder" style="min-height: 150px;">Accuracy heatmap</div>
-
-</div>
+<div class="grid grid-cols-2 gap-4 h-full">
+  <div class="flex flex-col">
+    <p class="text-center font-semibold mb-1">Mean absolute deviation</p>
+    <img src="/.figures/supplemental_madev.svg" alt="Supplemental MADev" class="w-full object-contain" style="max-height: calc(100% - 2rem);" />
+  </div>
+  <div class="flex flex-col">
+    <p class="text-center font-semibold mb-1">Power spectra</p>
+    <img src="/.figures/supplemental_power_spectra.svg" alt="Supplemental power spectra" class="w-full object-contain" style="max-height: calc(100% - 2rem);" />
+  </div>
 </div>
 
-<div class="dim-text text-center mt-4">Low Wasserstein distance between target and empirical distributions</div>
-
----
-class: supplementary
----
-
-# S4: circuit model parameters
-
-<div class="grid grid-cols-2 gap-8 text-sm">
-<div>
-
-**Neuron parameters**
-- $C = 0.25$ nF
-- $g_L^E = 0.0167$ μS
-- $V_L = -70$ mV
-- $V_{\mathrm{th}} = -50$ mV
-- $\tau_K = 40$ ms
-- $\Delta g_K = 0.002$ μS
-
-**Synaptic parameters**
-- $\tau_r^E = 1.0$ ms
-- $\tau_d^E = 5.0$ ms
-- $V_E = 0$ mV
-- $V_I = -80$ mV
-
-</div>
-<div>
-
-**Connectivity**
-- $\rho = 20000$ /mm²
-- $L = 0.5$ mm
-- E:I ratio $= 4$
-- $\eta_{EE} = 0.06$ mm
-- $K_{EE} = 260$
-- $J_{EE} = 0.00105$ μS
-
-**External input**
-- $\nu_{\mathrm{ext}} = 10$ Hz
-- $n_{\mathrm{ext}} = 100$
-
-</div>
-</div>
