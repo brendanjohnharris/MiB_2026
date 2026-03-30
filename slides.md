@@ -22,7 +22,7 @@ School of Physics<br>The University of Sydney
 
 <div style="position: absolute; bottom: 32px; font-size: 0.8em;">
 
-**Slides**: [brendanjohnharris.github.io/WorkingRegimeSlides](https://brendanjohnharris.github.io/WorkingRegimeSlides)
+**Slides**: [brendanjohnharris.github.io/MiB_2026_Slides](https://brendanjohnharris.github.io/MiB_2026_Slides)
 
 **Poster**: [github.com/brendanjohnharris/MiB_2026](github.com/brendanjohnharris/MiB_2026)
 
@@ -382,7 +382,7 @@ School of Physics, University of Sydney
 </div>
 
 <img src="/.figures/link.svg" class="mt--1 w-55" />
-<a href="https://brendanjohnharris.github.io/WorkingRegimeSlides/" class="">Slide deck</a>
+<a href="https://brendanjohnharris.github.io/MiB_2026_Slides/" class="">Slide deck</a>
 
 </div>
 

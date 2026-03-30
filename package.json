@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "slidev",
-    "build": "slidev build --base /WorkingRegimeSlides/",
+    "build": "slidev build --base /MiB_2026/",
     "export": "slidev export"
   },
   "dependencies": {
