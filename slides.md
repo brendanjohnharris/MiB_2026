@@ -13,6 +13,9 @@ aspectRatio: 16/9
 canvasWidth: 980
 transition: slide-left
 download: true
+export:
+  timeout: 60000
+  withClicks: false
 ---
 
 # <span style="font-size: 0.98em;">Adaptive Fractional States of the Visual Cortex</span>
