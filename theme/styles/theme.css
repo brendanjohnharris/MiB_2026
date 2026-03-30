@@ -318,11 +318,11 @@ tr:hover {
 }
 
 .block-alert {
-  border-left-color: var(--slidev-theme-crimson-dark);
+  border-left-color: var(--slidev-theme-crimson);
 }
 
 .block-example {
-  border-left-color: var(--slidev-theme-cucumber-dark);
+  border-left-color: var(--slidev-theme-cucumber);
 }
 
 /* ── Big question text ─────────────────────────────────────────────────── */
