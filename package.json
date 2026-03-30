@@ -10,7 +10,8 @@
   "dependencies": {
     "@slidev/cli": "^52.10.1",
     "@slidev/theme-default": "latest",
-    "@slidev/types": "^52.10.1"
+    "@slidev/types": "^52.10.1",
+    "@playwright/chromium": "^1.58.0"
   },
   "slidev": {
     "colorSchema": "dark",
