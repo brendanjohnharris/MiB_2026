@@ -352,10 +352,14 @@ $\textcolor{#EF9901}{\gamma}$ adds oscillatory peak
 
 <br>
 
+<div class="block">
+
 **Experimental targets:**
 
 - $b \approx -1.7 \to \textcolor{#DC143C}{\beta} \approx 0.85$
 - $a \approx 0.6 \to \textcolor{#6495ED}{\alpha} \approx 1.5$
+
+</div>
 
 </div>
 </div>
