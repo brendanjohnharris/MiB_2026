@@ -14,7 +14,7 @@ canvasWidth: 980
 transition: slide-left
 ---
 
-# <span style="font-size: 0.98em;">Adaptive Fractional Dynamics in the Visual Cortex</span>
+# <span style="font-size: 0.98em;">The Adaptive Fractional State of Visual Cortex</span>
 
 **Brendan Harris & Pulin Gong**
 
@@ -401,19 +401,9 @@ class: supplementary
 class: supplementary
 ---
 
-# S1: exponent variation across hierarchy
+# S1: Fractional derivatives: drift and diffusion
 
-Diffusion, spectral, and variability exponents across layers and areas
-
-<div class="figure-placeholder mt-4" style="min-height: 200px;">
-
-Figure: Exponents across cortical layers and visual areas
-
-</div>
-
-- Trend toward decreased diffusion exponent in layer 2/3 across hierarchy
-- Higher areas show spectral exponents closer to $-1.5$
-- Variability exponent increases in higher areas
+<img src="/.figures/fractional_summary.svg" class="w-full h-full object-contain" />
 
 ---
 class: supplementary
