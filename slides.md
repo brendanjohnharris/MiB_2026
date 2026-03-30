@@ -90,60 +90,78 @@ School of Physics<br>The University of Sydney
 <div class="grid grid-cols-2 gap-8 mt-2">
 <div>
 
-**Balanced E/I populations** can produce the fluctuation-driven regime <span class="dim-text">[[van Vreeswijk & Sompolinsky 1996](https://doi.org/10.1126/science.274.5293.1724)]</span>
+**Balanced E/I populations** can explain the fluctuation-driven regime <span class="dim-text" style="font-size: 0.75em;">[[van Vreeswijk & Sompolinsky 1996](https://doi.org/10.1126/science.274.5293.1724)]</span>
 
-**Mean-field theory** treats summed E/I input as a stochastic process <span class="dim-text">[[Brunel 2000](https://doi.org/10.1023/A:1008925309027)]</span>:
-- E and I inputs cancel on average
-- Spiking is driven by fluctuations alone
-<!-- - Population oscillations from E-I feedback appear in input traces -->
-<!-- ; [Wardak & Gong 2021](https://doi.org/10.1103/PhysRevResearch.3.013083)] -->
+**Mean-field theory** treats summed E/I input as a stochastic process <span class="dim-text" style="font-size: 0.75em;">[[Brunel 2000](https://doi.org/10.1023/A:1008925309027);[Wardak & Gong 2021](https://doi.org/10.1103/PhysRevResearch.3.013083)]</span>:
+- E and I inputs cancel _on average_ (low mean)
+- Random variations approx. _Gaussian noise_
 
 <div class="block mt-4">
-<div class="block-title">Classical mean-field Langevin-like Equation</div>
+<div class="block-title">Classical mean field</div>
 
 $$\frac{dV}{dt} = f(V) + \eta\,\xi(t)$$
 
 where $\xi(t)$ is white (or OU) Gaussian noise.
-</div></div>
+</div>
+</div>
+
 
 <img src="/.figures/mean_field.svg" class="w-full max-h-100" style="margin-top: 12px;" />
 
 </div>
 
-
 ---
 
-# Quantifying anomalous dynamics
+# Classical mean field exponents
 
-<div class="grid grid-cols-2 gap-6 mt-4">
+<div class="grid gap-6 mt-4" style="grid-template-columns: 2fr 2fr;">
+
+<div class="flex flex-col gap-3">
+
+<br>
+
+<br>
+
+<br>
+
 <div class="block">
-<div class="block-title">Diffusion exponent $a$</div>
+<div class="block-title">Diffusion exponent</div>
 
-Mean absolute deviation scales as:
-
-$$\text{MAD}(\tau) \propto \tau^{a}$$
+Mean absolute deviation: $\text{MAD}(\tau) \propto \tau^{a}$
 
 - $a = 0.5$ — normal (Brownian) diffusion
 - $a > 0.5$ — superdiffusion (fast spreading)
-- $a < 0.5$ — subdiffusion (slow spreading)
 
 </div>
-<div class="block">
-<div class="block-title">Spectral exponent $b$</div>
+<div class="block block-alert">
+<div class="block-title">Spectral exponent</div>
 
-Power spectral density scales as:
-
-$$\text{PSD}(f) \propto f^{b}$$
+Power spectral density: $\text{PSD}(f) \propto f^{b}$
 
 - $b = -2$ — white-noise-driven (memoryless)
-- $b > -2$ — negatively correlated increments (antipersistent)
-- $b < -2$ — positively correlated increments (persistent)
+- $b > -2$ — negatively correlated increments (antipersistent long-range memory)
+
 </div>
 </div>
+<div class="flex items-center justify-center">
+<img src="/.figures/diffusion.svg" style="width: 100%; height: auto; object-fit: contain;" />
+</div>
+</div>
+
+
+---
+
+# Cortex shows _anomalous_ dynamics
+
+
 
 <!-- <div class="alert-text mt-2">But experiment and circuit models show anomalous exponents that contradict these values</div> -->
 
-<img src="/.figures/experiment_circuit_statistics.svg" class="w-9/10 mx-auto" style="margin-top: auto;" />
+We measure LFP from mouse Neuropixels and subthreshold input currents from a biophysical circuit model
+
+<br>
+
+<img src="/.figures/experiment_circuit_statistics.svg" class="w-10/10 mx-auto" style="margin-top: auto;" />
 
 ---
 
@@ -307,74 +325,40 @@ $\textcolor{#EF9901}{\gamma}$ momentum adds subthreshold oscillations, tempering
 
 ---
 
-# ~~What~~ _Why_ is the working regime of the visual cortex?
+# _Why_ the adaptive fractional state?
 
-<div class="grid grid-cols-2 gap-6 mt-4">
+<div class="grid grid-cols-3 gap-6 mt-4">
+
+<div class="flex flex-col gap-3 col-span-2">
 <div class="block">
-<div class="block-title">Classical mean-field</div>
 
-Gaussian input currents — captures <span class="highlight">fluctuation-driven</span> spiking
+<!-- Classical mean field does not capture the anomalous dynamics of real data -->
 
-<br>
+<!-- <div class="text-center text-2xl my-1">↓</div>
 
-But fails to reproduce:
+We develop theoretical machinery for capturing anomalous dynamics -->
 
-- Oscillatory dynamics
-- Long-range temporal correlations
-- Superdiffusive variability
+<!-- <div class="text-center text-2xl my-1">↓</div> -->
 
-<div class="dim-text text-sm mt-2">Inconsistent with anomalous statistics observed in mouse visual cortex</div>
-
+New bi-fractional mean field explains:
+- Competitive superdiffusion and long-range memory
+- Oscillations
+- Power-law Fano factors
 </div>
-<div class="block">
-<div class="block-title">Bi-fractional model (bFNS)</div>
-
-Replace Gaussian input with fractional noise — fit to circuit biophysics
-
-<br>
-
-Adds three anomalous properties:
-
-- <span class="cornflowerblue">$\textcolor{#6495ED}{\alpha}$</span> — **superdiffusion** (heavy-tailed jumps)
-- <span class="crimson">$\textcolor{#DC143C}{\beta}$</span> — **long-range temporal correlations**
-- <span class="california">$\textcolor{#EF9901}{\gamma}$</span> — **oscillations** (subthreshold)
-
-<div class="dim-text text-sm mt-2">Independent tuning of all three properties via fractional calculus</div>
-
-</div>
-</div>
-
-<div class="grid grid-cols-2 gap-6 mt-4 items-center">
-<div class="block">
-<div class="block-title">Why? Exploration vs exploitation</div>
-
-<span class="highlight">Superdiffusive jumps</span> → rapid state-space exploration
-
-<span class="highlight">LRTCs</span> → stabilise local activity, enabling exploitation
-
-<div class="dim-text text-sm mt-3">The cortex may use anomalous dynamics to navigate the flexibility–stability trade-off</div>
-
-</div>
-<div class="flex justify-center">
+<!-- <div class="flex justify-center">
   <img src=".figures/brain_trace.svg" alt="Neural trace" style="width: 100%; height: auto; max-height: 130px; object-fit: contain;" />
-</div>
-</div>
+</div> -->
+<div class="block">
+Potential advantages of adaptive fractional state:
 
----
+- Exploration: superdiffusion/large jumps enable state switching
+- Exploitation: Subdiffusive long-range memory stabilizes local dynamics
 
-<div class="grid grid-cols-3 gap-6">
-<div class="col-span-2"><h1>Future directions</h1></div>
-<div class="text-right"><h1>Thank you!</h1></div>
-</div>
-
-<div class="grid grid-cols-3 gap-6 mt-2 text-sm">
-<div class="col-span-2">
-
-<div class="block"><div class="block-title">other applications</div>
- .... systems iwth LRTCS appear in ,......... list out piotentiall ysueful...
-</div>
+_Tunable_ exponents may allow circuits to better navigate the tradeoff between exploration/exploitation
 
 </div>
+</div>
+
 <div class="flex flex-col items-center justify-start text-center">
 
 
@@ -401,7 +385,10 @@ School of Physics, University of Sydney
 <a href="https://brendanjohnharris.github.io/WorkingRegimeSlides/" class="">Slide deck</a>
 
 </div>
+
 </div>
+
+
 
 ---
 layout: center
