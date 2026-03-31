@@ -215,7 +215,7 @@ The crucial fact is that the Gaussian noise assumption locks these dynamical exp
 
 <!-- <div class="alert-text mt-2">But experiment and circuit models show anomalous exponents that contradict these values</div> -->
 
-<div class="block">We study LFP from <span class="cucumber">mouse Neuropixels</span> and subthreshold inputs from a <span class="juliapurple-light">biophysical circuit model</span> <span class="dim-text">[<a href="https://doi.org/10.1038/s41467-022-32279-z">Qi & Gong 2022</a>]</span> </div>
+<div class="block">We study <span class="cucumber">mouse Neuropixels</span> LFP and subthreshold inputs from a <span class="juliapurple-light">biophysical circuit model</span> <span class="dim-text">[<a href="https://doi.org/10.1038/s41467-022-32279-z">Qi & Gong 2022</a>]</span> </div>
 
 <br>
 
