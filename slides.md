@@ -124,7 +124,7 @@ And they also have bumpy synaptic inputs, which you can see in the red trace her
 
 **Balanced E/I populations** can explain the fluctuation-driven regime <span class="dim-text" style="font-size: 0.75em;">[[van Vreeswijk & Sompolinsky 1996](https://doi.org/10.1126/science.274.5293.1724)]</span>
 
-**Mean-field theory** treats summed E/I input as a stochastic process <span class="dim-text" style="font-size: 0.75em;">[[Brunel 2000](https://doi.org/10.1023/A:1008925309027);[Wardak & Gong 2021](https://doi.org/10.1103/PhysRevResearch.3.013083)]</span>:
+**Mean-field theory** treats summed E/I input as a stochastic process <span class="dim-text" style="font-size: 0.75em;">[[Brunel 2000](https://doi.org/10.1023/A:1008925309027); [Wardak & Gong 2021](https://doi.org/10.1103/PhysRevResearch.3.013083)]</span>:
 - E and I inputs cancel _on average_ (low mean)
 - Random variations approx. _Gaussian noise_
 
