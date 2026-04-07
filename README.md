@@ -3,6 +3,6 @@ Poster file for "_Adaptive fractional dynamics in the visual cortex_", presented
 
 ## Additional links
 
-Talk slides: [WorkingRegimeSlides](https://brendanjohnharris.github.io/MiB_2026/)
+Talk slides: [MiB_2026](https://brendanjohnharris.github.io/MiB_2026/)
 
 ![MiB2026](MiB_2026.jpg)
